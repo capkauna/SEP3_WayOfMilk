@@ -33,6 +33,14 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <!-- It secures all HTTP endpoints by default.
+                 It automatically provides a basic login form.
+                 It creates a default user with a randomly generated, temporary password that is printed to the console when the application starts.
+             -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
