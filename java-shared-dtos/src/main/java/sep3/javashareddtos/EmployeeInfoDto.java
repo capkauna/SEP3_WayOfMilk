@@ -1,4 +1,4 @@
-package sep3.wayofmilk.DTOs;
+package sep3.javashareddtos;
 
 public class EmployeeInfoDto
 {
