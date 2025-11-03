@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/WayOfMilk_java_backend/pom.xml" />
         <option value="$PROJECT_DIR$/java-shared-dtos/pom.xml" />
+        <option value="$PROJECT_DIR$/WayOfMilk_java_backend_T3/pom.xml" />
+        <option value="$PROJECT_DIR$/WayOfMilk_java_controller_T2/wom_t2/pom.xml" />
       </list>
     </option>
   </component>

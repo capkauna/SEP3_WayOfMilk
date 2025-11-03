@@ -7,7 +7,7 @@ public class CowInfoDto
   private long id;
   private String regNo;
   private LocalDate birthDate;
-  private boolean isHealthy= false;
+  private boolean isHealthy;
 
   public CowInfoDto()
   {
@@ -19,5 +19,26 @@ public class CowInfoDto
     this.regNo = regNo;
     this.birthDate = birthDate;
     this.isHealthy = isHealthy;
+  }
+
+  //Getters only for now, since it's an information retrieval dto
+  public long getId()
+  {
+    return id;
+  }
+
+  public String getRegNo()
+  {
+    return regNo;
+  }
+
+  public LocalDate getBirthDate()
+  {
+    return birthDate;
+  }
+
+  public boolean isHealthy()
+  {
+    return isHealthy;
   }
 }

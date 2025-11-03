@@ -7,14 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WayOfMilk_java_backend" />
-        <module name="java-shared-dtos" />
+        <module name="shared-dtos" />
+        <module name="wom_t2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-shared-dtos" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="WayOfMilk_java_backend" options="-parameters" />
       <module name="java-shared-dtos" options="" />
+      <module name="wom_t2" options="-parameters" />
     </option>
   </component>
 </project>

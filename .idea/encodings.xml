@@ -2,6 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/WayOfMilk_java_backend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WayOfMilk_java_backend_T3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/WayOfMilk_java_controller_T2/wom_t2/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-shared-dtos/src/main/java" charset="UTF-8" />
   </component>
 </project>
