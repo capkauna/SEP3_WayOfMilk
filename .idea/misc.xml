@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/WayOfMilk_java_backend/pom.xml" />
+        <option value="$PROJECT_DIR$/WayOfMilk_java_backend/gateway-server/pom.xml" />
+        <option value="$PROJECT_DIR$/WayOfMilk_java_backend/core-server/pom.xml" />
       </list>
     </option>
   </component>
