@@ -13,6 +13,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="java-shared-dtos" target="21" />
+      <module name="WoM_Proto_grpcContract" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

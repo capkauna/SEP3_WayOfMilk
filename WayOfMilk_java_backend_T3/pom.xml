@@ -67,6 +67,11 @@
             <artifactId>shared-dtos</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>sep3</groupId>
+            <artifactId>wom-grpc-contract</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 <!-- gRPC dependencies -->
         <dependency>
             <groupId>net.devh</groupId>
@@ -86,42 +91,6 @@
     </dependencies>
 
     <build>
-        <!--grpc os-maven-plugin-->
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>1.7.1</version>
-            </extension>
-        </extensions>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!-- grpc protobuf plugin -->
-            <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.6.1</version>
-                <configuration>
-                    <!-- Specify the directory where your .proto files are located because it needs it -->
-                    <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
-
-                    <protocArtifact>com.google.protobuf:protoc:3.21.7:exe:${os.detected.classifier}</protocArtifact>
-                    <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.51.0:exe:${os.detected.classifier}</pluginArtifact>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>compile-custom</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
 
 </project>

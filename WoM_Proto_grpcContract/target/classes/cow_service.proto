@@ -8,6 +8,7 @@ option java_multiple_files = true;
 // The service T3 will implement and T2 will call
 service CowService {
   rpc GetAllCows (Empty) returns (CowList);
+  rpc AddCow (CowCreationRequest) returns (CowData);
   // rpc AddCow (CowCreationRequest) returns (CowIdResponse); // for the next feature
 }
 
@@ -16,6 +17,10 @@ message Empty {} // Simple empty message for requests with no parameters
 
 message CowList {
   repeated CowData cows = 1; // 'repeated' means a list
+}
+message CowCreationRequest {
+  string regNo = 1;
+  string birthDate = 2; // Using string for dates, and handling conversion (LocalDate <-> string) in the service layer
 }
 
 message CowData {

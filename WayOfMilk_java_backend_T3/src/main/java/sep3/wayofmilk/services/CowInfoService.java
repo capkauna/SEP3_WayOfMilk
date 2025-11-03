@@ -1,6 +1,7 @@
 // for my own understanding of functionalities
 package sep3.wayofmilk.services;
 
+import sep3.javashareddtos.CowCreationDto;
 import sep3.wayofmilk.entities.Cow;
 import sep3.wayofmilk.repositoryDAOs.CowDAO;
 import sep3.javashareddtos.CowInfoDto; // Import the shared DTO
@@ -35,6 +36,13 @@ public class CowInfoService {
     return cows.stream()
         .map(this::convertToDto) // Use the private helper method
         .collect(Collectors.toList());
+  }
+
+  public CowInfoDto addCow(CowCreationDto cow)
+  {
+    Cow addedCow = cowDAO.save(
+        new Cow(cow.getRegNo(), cow.getBirthDate()));
+    return convertToDto(addedCow);
   }
 
   /**

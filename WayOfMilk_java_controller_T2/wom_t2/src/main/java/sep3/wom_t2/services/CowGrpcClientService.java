@@ -2,7 +2,7 @@
 
 package sep3.wom_t2.services;
 
-import net.devh.boot.grpc.client.inject.GrpcClient;
+import net.devh.boot.grpc.server.service.GrpcClient;
 import sep3.wayofmilk.grpc.CowData;
 import sep3.wayofmilk.grpc.CowList;
 import sep3.wayofmilk.grpc.CowServiceGrpc; // Generated client class

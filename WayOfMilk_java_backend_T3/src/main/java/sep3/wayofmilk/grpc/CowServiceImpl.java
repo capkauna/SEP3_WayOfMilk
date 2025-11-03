@@ -5,11 +5,7 @@ package sep3.wayofmilk.grpc;
 import net.devh.boot.grpc.server.service.GrpcService;
 import sep3.javashareddtos.*;
 import sep3.wayofmilk.services.CowInfoService; // Your existing service
-import sep3.wayofmilk.grpc.CowServiceGrpc; // Generated base class
 // Import generated message classes:
-import sep3.wayofmilk.grpc.CowData;
-import sep3.wayofmilk.grpc.CowList;
-import sep3.wayofmilk.grpc.Empty;
 
 import io.grpc.stub.StreamObserver;
 import java.time.LocalDate;
@@ -46,6 +42,31 @@ public class CowServiceImpl extends CowServiceGrpc.CowServiceImplBase {
 
     // 3. Send the response and complete the call
     responseObserver.onNext(cowListBuilder.build());
+    responseObserver.onCompleted();
+  }
+
+  @Override
+  public void addCow(CowCreationRequest request, StreamObserver<CowData> responseObserver) {
+
+    // 1. Convert the gRPC Request message into the Spring DTO
+    CowCreationDto creationDto = new CowCreationDto(
+        request.getRegNo(),
+        LocalDate.parse(request.getBirthDate()) // Convert string to LocalDate
+    );
+
+    // 2. Call the Core Business Service
+    CowInfoDto createdDto = coreService.addCow(creationDto);
+
+    // 3. Convert the resulting CowInfoDto back into the gRPC response message (CowData)
+    CowData responseData = CowData.newBuilder()
+        .setId(createdDto.getId())
+        .setRegNo(createdDto.getRegNo())
+        .setBirthDate(createdDto.getBirthDate().toString())
+        .setIsHealthy(createdDto.isHealthy())
+        .build();
+
+    // 4. Send the response and complete the call
+    responseObserver.onNext(responseData);
     responseObserver.onCompleted();
   }
   //testng

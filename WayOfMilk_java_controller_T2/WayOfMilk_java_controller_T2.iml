@@ -9,5 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="shared-dtos" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:6.2.12" level="project" />
+    <orderEntry type="module" module-name="WayOfMilk_java_backend" />
+    <orderEntry type="library" name="Maven: net.devh:grpc-client-spring-boot-autoconfigure:2.15.0.RELEASE" level="project" />
   </component>
 </module>
