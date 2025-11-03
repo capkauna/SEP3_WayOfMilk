@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="wom-grpc-contract-0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/WoM_Proto_grpcContract/target/wom-grpc-contract-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
