@@ -1,0 +1,41 @@
+@page "/cows/create"
+@inject ICowService CowService
+@inject NavigationManager Nav
+
+<h3>Create Cow</h3>
+
+<EditForm Model="_model" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Reg No</label>
+        <InputText class="form-control" @bind-Value="_model.RegNo" />
+    </div>
+
+    <div class="mb-3">
+        <label>Birth Date</label>
+        <InputDate DateFormat="yyyy-MM-dd" class="form-control" @bind-Value="_model.BirthDate" />
+    </div>
+
+    <button class="btn btn-primary" type="submit" disabled="@_saving">
+        @_saving ? "Saving..." : "Save"
+    </button>
+    <a class="btn btn-secondary ms-2" href="/cows">Back</a>
+</EditForm>
+
+@code {
+    private CreateCowDto _model = new() { RegNo = string.Empty, BirthDate = DateTime.Today };
+    private bool _saving;
+
+    private async Task HandleSubmit()
+    {
+        _saving = true;
+        try
+        {
+            await CowService.CreateCowAsync(_model);
+            Nav.NavigateTo("/cows", forceLoad: true);
+        }
+        finally { _saving = false; }
+    }
+}
