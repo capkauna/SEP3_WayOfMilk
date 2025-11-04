@@ -1,0 +1,17 @@
+# IDE/OS Generated Files
+# ----------------------
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Maven target directories
+target/
+!/WoM_Proto_grpcContract/target/
+# We often exclude target, but keep the contract's target for easy local
+# referencing of the generated code (optional, but clean)
+
+# OS/System Files
+.DS_Store
+*.log
