@@ -1,6 +1,6 @@
-using BlazorApp;
-using BlazorApp.Services;
+using WayOfMilk.Blazor.Components;
 
+namespace BlazorApp;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
