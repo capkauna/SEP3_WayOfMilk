@@ -1,0 +1,19 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.wom.proto";
+package wom;
+
+message CreateCowRequest {
+  string regNo = 1;
+  string birthDateIso = 2;
+  int64 employeeId = 3;
+}
+message Cow {
+  int64 id = 1;
+  string regNo = 2;
+  string birthDateIso = 3;
+  bool isHealthy = 4;
+}
+service CowService {
+  rpc CreateCow(CreateCowRequest) returns (Cow);
+}

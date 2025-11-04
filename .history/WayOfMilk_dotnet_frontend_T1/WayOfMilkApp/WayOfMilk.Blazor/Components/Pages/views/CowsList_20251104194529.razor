@@ -1,0 +1,72 @@
+@page "/cows"
+@inject ICowService
+@inject NavigationManager Nav
+
+<h3>Cows</h3>
+
+<p>
+    <a class="btn btn-success" href="/cows/create">+ Add Cow</a>
+</p>
+
+@if (_loading)
+{
+    <p>Loading...</p>
+}
+else if (_error is not null)
+{
+    <div class="alert alert-danger">@_error</div>
+}
+else if (_cows?.Count is 0 or null)
+{
+    <p>No cows yet.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RegNo</th>
+                <th>BirthDate</th>
+                <th>Healthy?</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var c in _cows!)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.RegNo</td>
+                <td>@c.BirthDate.ToString("yyyy-MM-dd")</td>
+                <td>@(c.IsHealthy ? "Yes" : "No")</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-primary" href="/cows/@c.Id">Details</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<CowDto>? _cows;
+    private bool _loading = true;
+    private string? _error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _cows = await CowService.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+}

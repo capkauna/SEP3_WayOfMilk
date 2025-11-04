@@ -1,0 +1,52 @@
+@page "/cows/{id:long}"
+@inject ICowService CowService
+@inject NavigationManager Nav
+
+<h3>Cow Details</h3>
+
+@if (_loading)
+{
+    <p>Loading...</p>
+}
+else if (_error is not null)
+{
+    <div class="alert alert-danger">@_error</div>
+}
+else if (_cow is null)
+{
+    <p>Not found.</p>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt><dd class="col-sm-9">@_cow.Id</dd>
+        <dt class="col-sm-3">RegNo</dt><dd class="col-sm-9">@_cow.RegNo</dd>
+        <dt class="col-sm-3">BirthDate</dt><dd class="col-sm-9">@_cow.BirthDate.ToString("yyyy-MM-dd")</dd>
+        <dt class="col-sm-3">Healthy</dt><dd class="col-sm-9">@(_cow.IsHealthy ? "Yes" : "No")</dd>
+    </dl>
+    <a class="btn btn-secondary" href="/cows">Back</a>
+}
+
+@code {
+    [Parameter] public long id { get; set; }
+
+    private CowDto? _cow;
+    private bool _loading = true;
+    private string? _error;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        try
+        {
+            _cow = await CowService.GetByIdAsync(id);
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+}

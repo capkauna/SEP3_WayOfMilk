@@ -1,0 +1,65 @@
+@page "/users"
+@inject IEmployeeService EmployeeService
+
+<h3>Employees</h3>
+
+@if (_loading)
+{
+    <p>Loading...</p>
+}
+else if (_error is not null)
+{
+    <div class="alert alert-danger">@_error</div>
+}
+else if (_users?.Count is 0 or null)
+{
+    <p>No users.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var u in _users!)
+        {
+            <tr>
+                <td>@u.Id</td>
+                <td>@u.Name</td>
+                <td>@u.Email</td>
+                <td>@u.Phone</td>
+                <td>@u.Address</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<EmployeeDto>? _users;
+    private bool _loading = true;
+    private string? _error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _users = await EmployeeService.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+}

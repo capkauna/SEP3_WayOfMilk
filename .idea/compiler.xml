@@ -6,13 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="WayOfMilk_java_backend" />
+        <module name="WayOfMilk_java_backend_T3" />
+        <module name="wom_t2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="WayOfMilk_java_backend" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="WayOfMilk_java_backend" options="-parameters" />
+      <module name="WayOfMilk_java_backend_T3" options="-parameters" />
+      <module name="wom_t2" options="-parameters" />
     </option>
   </component>
 </project>
