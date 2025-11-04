@@ -1,8 +1,8 @@
 // T2 Module: src/main/java/sep3/wom_t2/service/CowGrpcClientService.java
 
-package sep3.wom_t2.services;
+package sep3.wom_t2.service;
 
-import net.devh.boot.grpc.server.service.GrpcClient;
+import net.devh.boot.grpc.client.inject.GrpcClient;
 import sep3.wayofmilk.grpc.CowData;
 import sep3.wayofmilk.grpc.CowList;
 import sep3.wayofmilk.grpc.CowServiceGrpc; // Generated client class

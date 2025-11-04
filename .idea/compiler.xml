@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WayOfMilk_java_backend" />
+        <module name="wom-grpc-contract" />
         <module name="shared-dtos" />
         <module name="wom_t2" />
       </profile>

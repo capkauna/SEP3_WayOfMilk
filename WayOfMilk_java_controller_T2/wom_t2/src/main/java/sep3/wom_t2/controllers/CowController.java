@@ -1,6 +1,6 @@
 package sep3.wom_t2.controllers;
 
-import sep3.wom_t2.services.CowGrpcClientService; // The gRPC client service
+import sep3.wom_t2.service.CowGrpcClientService; // The gRPC client service
 import sep3.javashareddtos.CowInfoDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -4,7 +4,7 @@ package sep3.wayofmilk.grpc;
 
 import net.devh.boot.grpc.server.service.GrpcService;
 import sep3.javashareddtos.*;
-import sep3.wayofmilk.services.CowInfoService; // Your existing service
+import sep3.wayofmilk.services.CowInfoService; // the existing service
 // Import generated message classes:
 
 import io.grpc.stub.StreamObserver;
