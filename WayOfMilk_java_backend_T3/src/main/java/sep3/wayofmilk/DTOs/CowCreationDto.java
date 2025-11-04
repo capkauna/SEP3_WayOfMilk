@@ -14,8 +14,7 @@ public class CowCreationDto
 
   public CowCreationDto(String regNo, LocalDate birthDate) {
     this.regNo = regNo;
-    this.birthDate = birthDate;
-  }
+    this.birthDate = birthDate;}
 
   // --- Getters and Setters (Mandatory for JSON conversion) ---
   public String getRegNo() {
